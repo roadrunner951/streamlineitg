@@ -10,6 +10,25 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', 'false');
 }));
 
+// Scroll reveal for cards and section headings
+const revealEls = document.querySelectorAll('.section-head, .card, .steps li, .stats div, .about > div:first-child, .contact-copy, .contact-form');
+if ('IntersectionObserver' in window) {
+  revealEls.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+}
+
+// Cursor-following glow on service cards
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('pointermove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    card.style.setProperty('--my', `${e.clientY - r.top}px`);
+  });
+});
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
