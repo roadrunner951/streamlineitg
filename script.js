@@ -30,7 +30,7 @@ form.addEventListener('submit', e => {
   }
   const subject = `Assessment request: ${d.get('interest')}`;
   const body = `Name: ${name}\nCompany: ${d.get('company')}\nEmail: ${email}\nInterest: ${d.get('interest')}\n\n${message}`;
-  window.location.href = `mailto:info@streamlineitg.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  status.textContent = 'Opening your email app… If nothing happens, email info@streamlineitg.com directly.';
+  window.location.href = `mailto:rreyes@streamlineitg.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  status.textContent = 'Opening your email app… If nothing happens, email rreyes@streamlineitg.com or call (951) 703-0411.';
   status.className = 'form-status';
 });
