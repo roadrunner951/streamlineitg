@@ -86,12 +86,12 @@ p { margin: 0 0 1em; }
 .brand:hover { color: #fff; }
 .brand-mark { width: 46px; height: auto; flex: none; filter: drop-shadow(0 0 8px rgba(43, 228, 234, .55)); transition: filter .3s, transform .3s; }
 .brand:hover .brand-mark { filter: drop-shadow(0 0 14px rgba(43, 228, 234, .85)); transform: translate(1px, -1px); }
-.wordmark { display: flex; flex-direction: column; font-family: "Montserrat", "Inter", sans-serif; font-weight: 800; line-height: 1; letter-spacing: .04em; }
-.wm-top { font-size: 1.02rem; color: #fff; }
-.wm-bottom { font-size: .82rem; letter-spacing: .2em; margin-top: 3px; background: linear-gradient(90deg, #2be4ea, #22c7e6); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.brand-lg .brand-mark { width: 80px; }
-.brand-lg .wm-top { font-size: 1.7rem; }
-.brand-lg .wm-bottom { font-size: 1.36rem; margin-top: 5px; }
+.wordmark { font-family: "Montserrat", "Inter", sans-serif; font-weight: 700; font-size: 1.2rem; line-height: 1; letter-spacing: -0.01em; color: #fff; white-space: nowrap; }
+.wm-accent { background: linear-gradient(90deg, #2be4ea, #22c7e6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.brand-lg .brand-mark { width: 72px; }
+.brand-lg .wordmark { font-size: 1.9rem; }
+@media (max-width: 480px) { .brand-lg .brand-mark { width: 56px; } .brand-lg .wordmark { font-size: 1.45rem; } }
+@media (max-width: 380px) { .wordmark { font-size: 1.05rem; } .brand-mark { width: 40px; } }
 .nav-menu { display: flex; align-items: center; gap: 32px; }
 .nav-menu a:not(.btn) { color: var(--muted); font-weight: 500; font-size: .95rem; }
 .nav-menu a:not(.btn):hover { color: #fff; }
