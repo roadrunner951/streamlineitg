@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -66 96 80" role="img" aria-label="Streamline IT Group logo mark">
+  <defs>
+    <linearGradient id="sm-g" x1="-30" y1="10" x2="60" y2="-60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2be4ea"/>
+      <stop offset=".55" stop-color="#22c7e6"/>
+      <stop offset="1" stop-color="#1b8fd6"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-45)" fill="none" stroke-linecap="butt" stroke-linejoin="round">
+    <!-- tube body -->
+    <g stroke="url(#sm-g)" stroke-width="8">
+      <path d="M46 -6 V-18 a8 8 0 0 0 -8 -8 H0 a8 8 0 0 0 -8 8 V-4"/>
+      <path d="M47 9 V20 a8 8 0 0 1 -8 8 H20"/>
+      <path d="M-2 0 H64"/>
+    </g>
+    <path d="M60 -14 L84 0 L60 14 Z" fill="url(#sm-g)" stroke="url(#sm-g)" stroke-width="2"/>
+    <!-- inner highlight for the glassy tube look -->
+    <g stroke="#e6fdff" stroke-opacity=".55" stroke-width="1.6">
+      <path d="M46 -6 V-18 a8 8 0 0 0 -8 -8 H0 a8 8 0 0 0 -8 8 V-4"/>
+      <path d="M47 9 V20 a8 8 0 0 1 -8 8 H20"/>
+      <path d="M-2 0 H63"/>
+    </g>
+  </g>
+</svg>
