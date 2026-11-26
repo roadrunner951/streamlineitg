@@ -11,7 +11,7 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 }));
 
 // Scroll reveal for cards and section headings
-const revealEls = document.querySelectorAll('.section-head, .card, .steps li, .stats div, .about > div:first-child, .contact-copy, .contact-form');
+const revealEls = document.querySelectorAll('.section-head, .phone, .video-copy, .card, .steps li, .stats div, .about > div:first-child, .contact-copy, .contact-form');
 if ('IntersectionObserver' in window) {
   revealEls.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {
@@ -28,6 +28,34 @@ document.querySelectorAll('.card').forEach(card => {
     card.style.setProperty('--my', `${e.clientY - r.top}px`);
   });
 });
+
+// Promo video: plays muted while on screen (unless the visitor prefers reduced motion),
+// pauses when scrolled away. Tap the video to pause/play; the Sound button unmutes.
+const video = document.getElementById('promo-video');
+const soundBtn = document.querySelector('.sound-toggle');
+if (video) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let userPaused = false;
+  if (reduceMotion) video.controls = true;
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !userPaused) video.play().catch(() => {});
+      else if (!e.isIntersecting) video.pause();
+    }, { threshold: 0.5 }).observe(video);
+  }
+  video.addEventListener('click', () => {
+    if (video.controls) return;
+    if (video.paused) { userPaused = false; video.play().catch(() => {}); }
+    else { userPaused = true; video.pause(); }
+  });
+  soundBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    const on = !video.muted;
+    soundBtn.setAttribute('aria-pressed', String(on));
+    soundBtn.setAttribute('aria-label', on ? 'Turn sound off' : 'Turn sound on');
+    if (on) { video.currentTime = 0; userPaused = false; video.play().catch(() => {}); }
+  });
+}
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
