@@ -284,9 +284,10 @@ p { margin: 0 0 1em; }
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
 }
-.phone.screen { aspect-ratio: 16 / 9; border-radius: 22px; padding: 8px; }
-.phone.screen .promo-video { border-radius: 15px; }
-.phone.screen .sound-toggle { right: 18px; bottom: 18px; }
+.phone.screen { aspect-ratio: auto; border-radius: 22px; padding: 8px; }
+.phone.screen .promo-video { height: auto; aspect-ratio: 16 / 9; object-fit: contain; border-radius: 15px; }
+.phone.screen .sound-toggle { top: calc(100% + 12px); bottom: auto; right: 4px; }
+.phone.screen { margin-bottom: 44px; }
 .promo-video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 26px; background: #000; cursor: pointer; }
 .sound-toggle {
   position: absolute; right: 22px; bottom: 22px; display: inline-flex; align-items: center; gap: 6px;
